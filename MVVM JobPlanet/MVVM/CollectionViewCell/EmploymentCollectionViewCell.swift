@@ -11,6 +11,8 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     var id : Int?
     
+    let halfWidth = UIScreen.main.bounds.width / 2
+    
     let imageView : UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 8
@@ -57,7 +59,7 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     }()
     
     let appealLabel1 : UILabel = {
-        let label = UILabel()
+        let label = PaddingLabel()
         label.text = "연봉 1.5배"
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 13)
@@ -70,7 +72,7 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     }()
     
     let appealLabel2 : UILabel = {
-        let label = UILabel()
+        let label = PaddingLabel()
         label.text = "리프레시 휴가"
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 13)
@@ -104,8 +106,10 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
         }
         
         imageView.snp.makeConstraints{(make) in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(98)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview()
+            make.width.equalTo(halfWidth - 40)
+            make.height.equalTo((halfWidth - 40) * 0.61)
         }
         
         titleLabel.snp.makeConstraints{(make) in
@@ -143,7 +147,7 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
         
         rewardLabel.snp.makeConstraints{(make) in
             make.left.equalToSuperview()
-            make.bottom.equalTo(-5)
+            make.top.equalTo(ratingImageView.snp.bottom).offset(40)
         }
         
     }

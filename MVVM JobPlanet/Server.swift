@@ -40,4 +40,34 @@ class Server {
             }
         }
     }
+    
+    func enterprise(completion : @escaping (EnterpriseModel?, Error?) -> ()){
+        let url = URL + "/test_data_cell_items.json"
+        print("url => \(url)")
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["Content-Type":"application/json; charset=utf-8", "Accept":"application/json"])
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+//                print(value)
+                guard let result = response.data else {return}
+                do {
+                let decoder = JSONDecoder()
+                let json = try decoder.decode(EnterpriseModel.self, from: response.data!)
+                
+                completion(json, nil)
+                } catch {
+                    print(error)
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                print("🚫 @@Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+                completion(nil, error)
+            }
+        }
+    }
 }

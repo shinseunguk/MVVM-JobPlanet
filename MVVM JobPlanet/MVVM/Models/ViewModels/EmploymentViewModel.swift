@@ -23,7 +23,6 @@ public class EmploymentViewModel{
     public func employmentReqeust(){
         server.employment { model, error in
             if let model = model {
-                print("model !!!!!!!!!")
                 self.employmentModel = model
             }
         }

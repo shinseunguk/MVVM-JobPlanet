@@ -14,7 +14,10 @@ class EmploymentView: UIView{
     let cellWithReuseIdentifier = "EmploymentCollectionViewCell"
     let viewModel = EmploymentViewModel.shared
     var model : EmploymentModel? = nil
-    var appealArray : [String]?
+    
+    var device = UIDevice.current.model
+    
+    var appealArray : [String] = [""]
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -28,7 +31,11 @@ class EmploymentView: UIView{
             flowLayout.minimumLineSpacing = 20 // 위아래 margin
             
             let halfWidth = UIScreen.main.bounds.width / 2
-            flowLayout.itemSize = CGSize(width: halfWidth - 30 , height: 226)
+            if device.contains("iPad") {
+                flowLayout.itemSize = CGSize(width: halfWidth - 30 , height: halfWidth - 50)
+            }else {
+                flowLayout.itemSize = CGSize(width: halfWidth - 30 , height: 226)
+            }
             flowLayout.footerReferenceSize = CGSize(width: halfWidth * 3, height: 70)
             flowLayout.sectionFootersPinToVisibleBounds = true
             //        flowLayout.sectionInset = UIEdgeInsets(top:5, left:15, bottom:5, right:7.5);
@@ -80,9 +87,13 @@ extension EmploymentView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellWithReuseIdentifier, for: indexPath) as? EmploymentCollectionViewCell else { fatalError("can't dequeue CustomCell") }
         if let model = self.model?.recruit_items {
+            
             let rating = ratingAVG(model[indexPath.row].company?.ratings)
+            
             let appeal : String = model[indexPath.row].appeal!
-            let appealArray = appeal.components(separatedBy: ",")
+            var appealArray = appeal.components(separatedBy: ", ")
+            appealArray = arraySortByCount(appealArray)
+            
             //url에 정확한 이미지 url 주소를 넣는다.
             let url = URL(string: model[indexPath.row].image_url!)
             //DispatchQueue를 쓰는 이유 -> 이미지가 클 경우 이미지를 다운로드 받기 까지 잠깐의 멈춤이 생길수 있다. (이유 : 싱글 쓰레드로 작동되기때문에)
@@ -105,11 +116,15 @@ extension EmploymentView: UICollectionViewDataSource, UICollectionViewDelegate {
             cell.companyLabel.text = model[indexPath.row].company?.name
             cell.ratingLabel.text = rating
             
-            if appealArray.count != 0 {
-                if appealArray.count == 1{
+            
+            // 글자수로 count해 appeal 칼럼을 한개만 뿌려줄건지 두개만 뿌려줄건지 set
+            if appealArray.count != 0 && appealArray[0].count != 0 {
+                if appealArray.count == 1 || appealArray[0].count + appealArray[1].count > 10{ // appeal 칼럼이 한개 || appeal0, appeal1 글자수가 10개 초과일때
                     cell.appealLabel1.text = appealArray[0]
                     cell.appealLabel2.removeFromSuperview()
-                }else {
+                }else if appealArray[0].count + appealArray[1].count < 10{ // appeal0, appeal1 글자수가 10개 미만일때
+//                    print("appealArray[0].count \(appealArray[0].count)")
+//                    print("appealArray[1].count \(appealArray[1].count)")
                     cell.appealLabel1.text = appealArray[0]
                     cell.appealLabel2.text = appealArray[1]
                 }
@@ -134,12 +149,19 @@ extension EmploymentView: UICollectionViewDataSource, UICollectionViewDelegate {
         
     }
     
+    // MARK: - 글자순대로 정렬
+    func arraySortByCount(_ array : [String]) -> [String] {
+        appealArray = array.sorted(by: { $0.count < $1.count })
+//        print(appealArray)
+        return appealArray
+    }
+    
     // MARK: - rating 평균내기
     func ratingAVG(_ ratingDetail : [ratingDetail]?) -> String{
         var avg = 0.0
         if let ratingDetail = ratingDetail {
             for x in 0...ratingDetail.count-1 {
-                print("rating => ",ratingDetail[x].rating)
+//                print("rating => ",ratingDetail[x].rating)
                 avg += ratingDetail[x].rating!
             }
             avg = avg / CGFloat(ratingDetail.count)
