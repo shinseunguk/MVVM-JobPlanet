@@ -7,8 +7,13 @@
 
 import UIKit
 
-class EnterpriseTableViewCell: UITableViewCell {
+class EnterpriseTableViewCell: UITableViewCell, PushScreen{
+    func pushScreen(_ model: EmploymentDetail) {
+        self.delegate?.pushScreen(model)
+    }
     let helper = Helper()
+    
+    weak var delegate: PushScreen?
     
     let view : UIView = {
         let view = UIView()
@@ -146,7 +151,6 @@ class EnterpriseTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        print(#file , #function)
         
         backgroundColor = .white
 
@@ -236,7 +240,6 @@ class EnterpriseTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

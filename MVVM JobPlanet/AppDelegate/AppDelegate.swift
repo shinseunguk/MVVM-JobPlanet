@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = .white
         
+        UITabBar.appearance().backgroundColor = UIColor.white
+        
         return true
     }
 

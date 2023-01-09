@@ -8,27 +8,35 @@
 import Foundation
 import UIKit
 
+
 @IBDesignable
-class InteractionView: UIView{
+class InteractionView: UIView, PushScreen, PushParam{
+    func moveParam(_ model1: EmploymentModel?, _ model2: EnterpriseModel?) {
+        print(#file , #function)
+        self.pushDelegate?.moveParam(model1, model2)
+    }
+    
+    func pushScreen(_ model: EmploymentDetail) {
+        print(#file , #function)
+        self.delegate?.pushScreen(model)
+    }
+    
     @IBOutlet var view: UIView!
     
     let employmentView = EmploymentView(frame: .zero)
     let enterpriseView = EnterpriseView(frame: .zero)
     
-    
-//    @IBOutlet weak var employmentView: EmploymentView!
-//    @IBOutlet weak var enterpriseView: EnterpriseView!
+    weak var delegate : PushScreen?
+    weak var pushDelegate : PushParam?
     
     @IBOutlet weak var label: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(#file , #function)
         commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print(#file , #function)
         commonInit()
         
         addSubview(employmentView)
@@ -38,12 +46,16 @@ class InteractionView: UIView{
     }
     
     private func commonInit(){
-        print(#file , #function)
         let bundle = Bundle(for: EmploymentView.self)
         bundle.loadNibNamed("InteractionView", owner: self, options: nil)
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        employmentView.delegate = self
+        employmentView.pushDelegate = self
+        enterpriseView.delegate = self
+        enterpriseView.pushDelegate = self
     }
     
     func removeEmploymentView() {

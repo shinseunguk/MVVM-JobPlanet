@@ -9,7 +9,17 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class MainView: UIView {
+class MainView: UIView, PushScreen, PushParam {
+    func moveParam(_ model1: EmploymentModel?, _ model2: EnterpriseModel?) {
+        print(#file , #function)
+        self.pushDelegate?.moveParam(model1, model2)
+    }
+    
+    func pushScreen(_ model: EmploymentDetail) {
+        self.delegate?.pushScreen(model)
+    }
+    weak var delegate : PushScreen?
+    weak var pushDelegate : PushParam?
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var interActionView: InteractionView!
@@ -55,8 +65,13 @@ class MainView: UIView {
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        interActionView.delegate = self
+        interActionView.pushDelegate = self
+        
     }
     
+    // MARK: - 토글 형식으로 표현
     @objc func tabMan(_ sender: Any){
         
         let btnTag = (sender as? UIButton)?.tag

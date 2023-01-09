@@ -9,15 +9,31 @@ import Foundation
 import UIKit
 import Kingfisher
 
+protocol PushParam: AnyObject {
+    func moveParam(_ model1: EmploymentModel?,_ model2: EnterpriseModel?)
+}
+
+protocol PushScreen: AnyObject {
+    func pushScreen(_ model: EmploymentDetail)
+}
+
 @IBDesignable
 class EmploymentView: UIView{
     let cellWithReuseIdentifier = "EmploymentCollectionViewCell"
+    let helper = Helper()
     let viewModel = EmploymentViewModel.shared
-    var model : EmploymentModel? = nil
+    var model : EmploymentModel? {
+        didSet {
+            self.pushDelegate?.moveParam(model, nil)
+        }
+    }
     
     var device = UIDevice.current.model
     
     var appealArray : [String] = [""]
+    
+    weak var delegate : PushScreen?
+    weak var pushDelegate : PushParam?
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -138,8 +154,6 @@ extension EmploymentView: UICollectionViewDataSource, UICollectionViewDelegate {
             if model[indexPath.row].reward != 0 {
                 var rewardFormatting = model[indexPath.row].reward?.commaRepresentation
                 cell.rewardLabel.text = "축하금 \(rewardFormatting!)원"
-            }else {
-                cell.rewardLabel.removeFromSuperview()
             }
             
             return cell
@@ -147,6 +161,13 @@ extension EmploymentView: UICollectionViewDataSource, UICollectionViewDelegate {
             return UICollectionViewCell()
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let model = self.model?.recruit_items![indexPath.row] {
+            print(model)
+            self.delegate?.pushScreen(model)
+        }
     }
     
     // MARK: - 글자순대로 정렬

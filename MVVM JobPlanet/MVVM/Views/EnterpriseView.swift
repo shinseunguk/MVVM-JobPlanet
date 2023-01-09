@@ -9,14 +9,24 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class EnterpriseView: UIView{
+class EnterpriseView: UIView, PushScreen{
+    func pushScreen(_ model: EmploymentDetail) {
+        self.delegate?.pushScreen(model)
+    }
+    
+    weak var delegate: PushScreen?
+    weak var pushDelegate : PushParam?
+    
     let cellReuseIdentifier = "EnterpriseTableViewCell"
     let cell2ReuseIdentifier = "Enterprise2TableViewCell"
     let viewModel = EnterpriseViewModel.shared
+    
     var model : EnterpriseModel? {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            
+            self.pushDelegate?.moveParam(nil, model)
         }
     }
     
@@ -27,8 +37,7 @@ class EnterpriseView: UIView{
             tableView.register(nib, forCellReuseIdentifier: "EnterpriseTableViewCell")
             let nib2 = UINib(nibName: "Enterprise2TableViewCell", bundle: nil)
             tableView.register(nib2, forCellReuseIdentifier: "Enterprise2TableViewCell")
-            tableView.rowHeight = UITableView.automaticDimension
-            tableView.estimatedRowHeight = 430;
+            tableView.backgroundColor = .white
         }
     }
     
@@ -41,7 +50,6 @@ class EnterpriseView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        print(#file , #function)
         viewModel.enterpriseReqeust()
         
         viewModel.didFinishFetch = {
@@ -66,7 +74,7 @@ class EnterpriseView: UIView{
 extension EnterpriseView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let cell_items = model?.cell_items {
-            return cell_items.count + 1 // 한개를 더해주는 것은 인기 급상승 공고를 위한
+            return cell_items.count
         }else {
             return 0
         }
@@ -74,22 +82,19 @@ extension EnterpriseView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var indexRow : Int = 0
-        
-        if indexPath.row != 2 {
+        // collectionview
+        if let model = self.model?.cell_items?[indexPath.row], let recommendRecruit = self.model?.cell_items?[indexPath.row].recommendRecruit{
+            let cell = tableView.dequeueReusableCell(withIdentifier: cell2ReuseIdentifier, for: indexPath) as! Enterprise2TableViewCell
+            cell.delegate = self
+            cell.selectionStyle = .none
+            
+            
+            cell.param = [model]
+            return cell
+        }else if let model = self.model?.cell_items?[indexPath.row]{
             let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! EnterpriseTableViewCell
+            cell.selectionStyle = .none
             
-            // 인기 급상승 공고로 인한 로직
-            if indexPath.row >= 3 {
-                indexRow = indexPath.row - 1
-            }else {
-                indexRow = indexPath.row
-            }
-//            print(indexRow)
-            
-            
-            if let model = model?.cell_items?[indexRow] {
-                print(model.name)
                 // 회사 로고
                 if let logoPath = model.logoPath {
                     let url = URL(string: model.logoPath!)
@@ -144,14 +149,6 @@ extension EnterpriseView: UITableViewDelegate, UITableViewDataSource {
                     cell.interviewDescription.text = interviewQuestion
                 }
                     
-            }
-            
-            return cell
-        }else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cell2ReuseIdentifier, for: indexPath) as! Enterprise2TableViewCell
-            if let model = model?.cell_items?[indexRow].recommendRecruit {
-                cell.param = model
-            }
             
             return cell
         }else {
@@ -160,13 +157,15 @@ extension EnterpriseView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row != 2 {
-            return 430
-        }else {
-            return 315
-//            return 30
+        guard let recommendRecruit = self.model?.cell_items?[indexPath.row].recommendRecruit else{
+            return 450
         }
+        return 315
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.model?.cell_items?[indexPath.row].recommendRecruit == nil {
+            print(indexPath.row)
+        }
+    }
 }

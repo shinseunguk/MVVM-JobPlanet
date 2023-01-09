@@ -23,7 +23,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let titleLabel : UILabel = {
         let label = UILabel()
-//        label.text = "dfwefhwuiefhuiweifhewiufewhifwuiehfuwiewaefawefwa"
         label.numberOfLines = 2
         label.font = .boldSystemFont(ofSize: 15)
         label.textColor = .black
@@ -40,7 +39,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let ratingLabel : UILabel = {
         let label = UILabel()
-//        label.text = "3.6"
         label.numberOfLines = 1
         label.font = .boldSystemFont(ofSize: 14)
         label.textColor = .black
@@ -50,7 +48,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let companyLabel : UILabel = {
         let label = UILabel()
-//        label.text = "브레인커머스"
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
@@ -60,7 +57,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let appealLabel1 : UILabel = {
         let label = PaddingLabel()
-        label.text = "연봉 1.5배"
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
@@ -73,7 +69,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let appealLabel2 : UILabel = {
         let label = PaddingLabel()
-        label.text = "리프레시 휴가"
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 13)
         label.textColor = .black
@@ -86,7 +81,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
     
     let rewardLabel : UILabel = {
         let label = UILabel()
-        label.text = "축하금: 2,000,000원"
         label.numberOfLines = 1
         label.font = .boldSystemFont(ofSize: 13)
         label.textColor = .black

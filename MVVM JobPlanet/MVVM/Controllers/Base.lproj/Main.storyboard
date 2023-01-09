@@ -51,6 +51,48 @@
             </objects>
             <point key="canvasLocation" x="910.76923076923072" y="0.7109004739336493"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="KgA-70-Rsb">
+            <objects>
+                <viewController id="im6-Hh-aZU" customClass="DetailViewController" customModule="MVVM_JobPlanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hqz-DG-kSk">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugh-va-Msf" customClass="DetailView" customModule="MVVM_JobPlanet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hAs-iH-sCl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hAs-iH-sCl" firstAttribute="bottom" secondItem="ugh-va-Msf" secondAttribute="bottom" id="CCH-vT-T6P"/>
+                            <constraint firstItem="hAs-iH-sCl" firstAttribute="trailing" secondItem="ugh-va-Msf" secondAttribute="trailing" id="bMw-IG-etj"/>
+                            <constraint firstItem="ugh-va-Msf" firstAttribute="leading" secondItem="hAs-iH-sCl" secondAttribute="leading" id="rhY-hM-sR3"/>
+                            <constraint firstItem="ugh-va-Msf" firstAttribute="top" secondItem="hAs-iH-sCl" secondAttribute="top" id="tv4-0r-lgv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5X5-b4-l0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="1"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="6gf-Df-nNf">
+            <objects>
+                <viewController id="3Bx-tM-zKS" customClass="SearchViewController" customModule="MVVM_JobPlanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L4Z-Rs-QzP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="z9b-n6-7Rm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1d0-f1-bdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="676"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyW-jh-E1u">
             <objects>

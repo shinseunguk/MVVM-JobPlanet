@@ -24,7 +24,6 @@ struct EnterpriseList: Codable {
     let salaryAvg : Int?
     let updateDate : String?
     
-    // 인기 급상승 공고
     let count : Int?
     let sectionTitle : String?
     let recommendRecruit : [EmploymentDetail]?
