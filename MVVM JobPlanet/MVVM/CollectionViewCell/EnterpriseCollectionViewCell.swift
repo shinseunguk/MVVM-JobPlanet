@@ -8,9 +8,6 @@
 import UIKit
 
 class EnterpriseCollectionViewCell: UICollectionViewCell {
-    
-//    let halfWidth = UIScreen.main.bounds.width / 2
-//
     var id: Int?
     
     let imageView : UIImageView = {
@@ -20,7 +17,7 @@ class EnterpriseCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = .clear
         return view
     }()
-//
+    
     let titleLabel : UILabel = {
         let label = UILabel()
         label.numberOfLines = 2

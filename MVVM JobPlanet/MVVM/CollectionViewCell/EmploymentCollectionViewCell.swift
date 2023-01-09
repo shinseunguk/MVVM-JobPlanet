@@ -95,8 +95,6 @@ class EmploymentCollectionViewCell: UICollectionViewCell {
         
         _ = [imageView, titleLabel, ratingImageView, ratingLabel, companyLabel, appealLabel1, appealLabel2, rewardLabel].map {
             addSubview($0)
-//            self.layer.borderWidth = 1
-//            $0.layer.borderWidth = 1
         }
         
         imageView.snp.makeConstraints{(make) in
