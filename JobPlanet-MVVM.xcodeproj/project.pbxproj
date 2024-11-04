@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC837A982CD8A67C004DC7D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */; };
+		AC837A9A2CD8A67C004DC7D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */; };
+		AC837A9C2CD8A67C004DC7D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */; };
+		AC837A9F2CD8A67C004DC7D6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC837A9E2CD8A67C004DC7D6 /* Base */; };
+		AC837AA12CD8A67D004DC7D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */; };
+		AC837AA42CD8A67D004DC7D6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC837AA32CD8A67D004DC7D6 /* Base */; };
+		AC837AAF2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AAE2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift */; };
+		AC837AB92CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AB82CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift */; };
+		AC837ABB2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ABA2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC837AAB2CD8A67D004DC7D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC837A8C2CD8A67C004DC7D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC837A932CD8A67C004DC7D6;
+			remoteInfo = "JobPlanet-MVVM";
+		};
+		AC837AB52CD8A67D004DC7D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC837A8C2CD8A67C004DC7D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC837A932CD8A67C004DC7D6;
+			remoteInfo = "JobPlanet-MVVM";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC837A942CD8A67C004DC7D6 /* JobPlanet-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JobPlanet-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC837A9E2CD8A67C004DC7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC837AA32CD8A67D004DC7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC837AA52CD8A67D004DC7D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC837AAA2CD8A67D004DC7D6 /* JobPlanet-MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JobPlanet-MVVMTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC837AAE2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanet_MVVMTests.swift; sourceTree = "<group>"; };
+		AC837AB42CD8A67D004DC7D6 /* JobPlanet-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JobPlanet-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC837AB82CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanet_MVVMUITests.swift; sourceTree = "<group>"; };
+		AC837ABA2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanet_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC837A912CD8A67C004DC7D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AA72CD8A67D004DC7D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AB12CD8A67D004DC7D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC837A8B2CD8A67C004DC7D6 = {
+			isa = PBXGroup;
+			children = (
+				AC837A962CD8A67C004DC7D6 /* JobPlanet-MVVM */,
+				AC837AAD2CD8A67D004DC7D6 /* JobPlanet-MVVMTests */,
+				AC837AB72CD8A67D004DC7D6 /* JobPlanet-MVVMUITests */,
+				AC837A952CD8A67C004DC7D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC837A952CD8A67C004DC7D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC837A942CD8A67C004DC7D6 /* JobPlanet-MVVM.app */,
+				AC837AAA2CD8A67D004DC7D6 /* JobPlanet-MVVMTests.xctest */,
+				AC837AB42CD8A67D004DC7D6 /* JobPlanet-MVVMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC837A962CD8A67C004DC7D6 /* JobPlanet-MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */,
+				AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */,
+				AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */,
+				AC837A9D2CD8A67C004DC7D6 /* Main.storyboard */,
+				AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */,
+				AC837AA22CD8A67D004DC7D6 /* LaunchScreen.storyboard */,
+				AC837AA52CD8A67D004DC7D6 /* Info.plist */,
+			);
+			path = "JobPlanet-MVVM";
+			sourceTree = "<group>";
+		};
+		AC837AAD2CD8A67D004DC7D6 /* JobPlanet-MVVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AAE2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift */,
+			);
+			path = "JobPlanet-MVVMTests";
+			sourceTree = "<group>";
+		};
+		AC837AB72CD8A67D004DC7D6 /* JobPlanet-MVVMUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AB82CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift */,
+				AC837ABA2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift */,
+			);
+			path = "JobPlanet-MVVMUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC837A932CD8A67C004DC7D6 /* JobPlanet-MVVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC837ABE2CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVM" */;
+			buildPhases = (
+				AC837A902CD8A67C004DC7D6 /* Sources */,
+				AC837A912CD8A67C004DC7D6 /* Frameworks */,
+				AC837A922CD8A67C004DC7D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JobPlanet-MVVM";
+			productName = "JobPlanet-MVVM";
+			productReference = AC837A942CD8A67C004DC7D6 /* JobPlanet-MVVM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC837AA92CD8A67D004DC7D6 /* JobPlanet-MVVMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC837AC12CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMTests" */;
+			buildPhases = (
+				AC837AA62CD8A67D004DC7D6 /* Sources */,
+				AC837AA72CD8A67D004DC7D6 /* Frameworks */,
+				AC837AA82CD8A67D004DC7D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC837AAC2CD8A67D004DC7D6 /* PBXTargetDependency */,
+			);
+			name = "JobPlanet-MVVMTests";
+			productName = "JobPlanet-MVVMTests";
+			productReference = AC837AAA2CD8A67D004DC7D6 /* JobPlanet-MVVMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC837AB32CD8A67D004DC7D6 /* JobPlanet-MVVMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC837AC42CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMUITests" */;
+			buildPhases = (
+				AC837AB02CD8A67D004DC7D6 /* Sources */,
+				AC837AB12CD8A67D004DC7D6 /* Frameworks */,
+				AC837AB22CD8A67D004DC7D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC837AB62CD8A67D004DC7D6 /* PBXTargetDependency */,
+			);
+			name = "JobPlanet-MVVMUITests";
+			productName = "JobPlanet-MVVMUITests";
+			productReference = AC837AB42CD8A67D004DC7D6 /* JobPlanet-MVVMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC837A8C2CD8A67C004DC7D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					AC837A932CD8A67C004DC7D6 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					AC837AA92CD8A67D004DC7D6 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = AC837A932CD8A67C004DC7D6;
+					};
+					AC837AB32CD8A67D004DC7D6 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = AC837A932CD8A67C004DC7D6;
+					};
+				};
+			};
+			buildConfigurationList = AC837A8F2CD8A67C004DC7D6 /* Build configuration list for PBXProject "JobPlanet-MVVM" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC837A8B2CD8A67C004DC7D6;
+			productRefGroup = AC837A952CD8A67C004DC7D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC837A932CD8A67C004DC7D6 /* JobPlanet-MVVM */,
+				AC837AA92CD8A67D004DC7D6 /* JobPlanet-MVVMTests */,
+				AC837AB32CD8A67D004DC7D6 /* JobPlanet-MVVMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC837A922CD8A67C004DC7D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC837AA12CD8A67D004DC7D6 /* Assets.xcassets in Resources */,
+				AC837AA42CD8A67D004DC7D6 /* Base in Resources */,
+				AC837A9F2CD8A67C004DC7D6 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AA82CD8A67D004DC7D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AB22CD8A67D004DC7D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC837A902CD8A67C004DC7D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC837A9C2CD8A67C004DC7D6 /* ViewController.swift in Sources */,
+				AC837A982CD8A67C004DC7D6 /* AppDelegate.swift in Sources */,
+				AC837A9A2CD8A67C004DC7D6 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AA62CD8A67D004DC7D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC837AAF2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC837AB02CD8A67D004DC7D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC837ABB2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift in Sources */,
+				AC837AB92CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC837AAC2CD8A67D004DC7D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC837A932CD8A67C004DC7D6 /* JobPlanet-MVVM */;
+			targetProxy = AC837AAB2CD8A67D004DC7D6 /* PBXContainerItemProxy */;
+		};
+		AC837AB62CD8A67D004DC7D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC837A932CD8A67C004DC7D6 /* JobPlanet-MVVM */;
+			targetProxy = AC837AB52CD8A67D004DC7D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC837A9D2CD8A67C004DC7D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC837A9E2CD8A67C004DC7D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC837AA22CD8A67D004DC7D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC837AA32CD8A67D004DC7D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC837ABC2CD8A67D004DC7D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC837ABD2CD8A67D004DC7D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC837ABF2CD8A67D004DC7D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JobPlanet-MVVM/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC837AC02CD8A67D004DC7D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JobPlanet-MVVM/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC837AC22CD8A67D004DC7D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JobPlanet-MVVM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JobPlanet-MVVM";
+			};
+			name = Debug;
+		};
+		AC837AC32CD8A67D004DC7D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JobPlanet-MVVM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JobPlanet-MVVM";
+			};
+			name = Release;
+		};
+		AC837AC52CD8A67D004DC7D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVMUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "JobPlanet-MVVM";
+			};
+			name = Debug;
+		};
+		AC837AC62CD8A67D004DC7D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVMUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "JobPlanet-MVVM";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC837A8F2CD8A67C004DC7D6 /* Build configuration list for PBXProject "JobPlanet-MVVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC837ABC2CD8A67D004DC7D6 /* Debug */,
+				AC837ABD2CD8A67D004DC7D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC837ABE2CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC837ABF2CD8A67D004DC7D6 /* Debug */,
+				AC837AC02CD8A67D004DC7D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC837AC12CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC837AC22CD8A67D004DC7D6 /* Debug */,
+				AC837AC32CD8A67D004DC7D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC837AC42CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC837AC52CD8A67D004DC7D6 /* Debug */,
+				AC837AC62CD8A67D004DC7D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC837A8C2CD8A67C004DC7D6 /* Project object */;
+}
