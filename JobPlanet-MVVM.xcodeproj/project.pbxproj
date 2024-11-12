@@ -7,15 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C4DC482489770054E31488B /* Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257C5884C526DF270D95510B /* Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework */; };
+		7A8D2C1744C853A89DDFF9BB /* Pods_JobPlanet_MVVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD204CAF8E86BB3DA3C6F87 /* Pods_JobPlanet_MVVMTests.framework */; };
+		7D382D9C4F01CD0E9B8CD6A8 /* Pods_JobPlanet_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7423E49E7BCCEC5FC7F005 /* Pods_JobPlanet_MVVM.framework */; };
 		AC837A982CD8A67C004DC7D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */; };
 		AC837A9A2CD8A67C004DC7D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */; };
-		AC837A9C2CD8A67C004DC7D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */; };
+		AC837A9C2CD8A67C004DC7D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837A9B2CD8A67C004DC7D6 /* MainViewController.swift */; };
 		AC837A9F2CD8A67C004DC7D6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC837A9E2CD8A67C004DC7D6 /* Base */; };
 		AC837AA12CD8A67D004DC7D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */; };
 		AC837AA42CD8A67D004DC7D6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC837AA32CD8A67D004DC7D6 /* Base */; };
 		AC837AAF2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AAE2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift */; };
 		AC837AB92CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AB82CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift */; };
 		AC837ABB2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ABA2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift */; };
+		AC837ACE2CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ACD2CD8A906004DC7D6 /* UIColor+Extension.swift */; };
+		AC837ACF2CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ACD2CD8A906004DC7D6 /* UIColor+Extension.swift */; };
+		AC837AD02CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ACD2CD8A906004DC7D6 /* UIColor+Extension.swift */; };
+		AC837AD32CD8ADAB004DC7D6 /* ViewAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AD22CD8ADAB004DC7D6 /* ViewAttributes.swift */; };
+		AC837AD72CD9A80A004DC7D6 /* ToggleButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AD62CD9A80A004DC7D6 /* ToggleButon.swift */; };
+		AC837ADA2CD9B3A1004DC7D6 /* MainReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AD92CD9B3A1004DC7D6 /* MainReactor.swift */; };
+		AC837ADD2CD9EC94004DC7D6 /* EmploymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ADC2CD9EC94004DC7D6 /* EmploymentCollectionViewCell.swift */; };
+		AC837ADF2CDA0077004DC7D6 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837ADE2CDA0077004DC7D6 /* UILabel+Extension.swift */; };
+		AC837AE22CDA056F004DC7D6 /* WLBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AE12CDA056F004DC7D6 /* WLBLabel.swift */; };
+		AC837AE72CDAFC1F004DC7D6 /* Recruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AE62CDAFC1F004DC7D6 /* Recruit.swift */; };
+		AC837AE92CDAFCF5004DC7D6 /* Enterprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AE82CDAFCF5004DC7D6 /* Enterprise.swift */; };
+		AC837AEB2CDAFE2C004DC7D6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AEA2CDAFE2C004DC7D6 /* MainRouter.swift */; };
+		AC837AED2CDAFE30004DC7D6 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AEC2CDAFE30004DC7D6 /* MainService.swift */; };
+		AC837AEF2CDB0D0A004DC7D6 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC837AEE2CDB0D0A004DC7D6 /* Int+Extension.swift */; };
+		AC88C2C82CDC47330071DB21 /* Reactive+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2C72CDC47330071DB21 /* Reactive+Extension.swift */; };
+		AC88C2CB2CDC8A2E0071DB21 /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2CA2CDC8A2E0071DB21 /* CompanyTableViewCell.swift */; };
+		AC88C2CD2CDCB3820071DB21 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2CC2CDCB3820071DB21 /* ThemeTableViewCell.swift */; };
+		AC88C2CF2CDD97A10071DB21 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2CE2CDD97A10071DB21 /* ReviewTableViewCell.swift */; };
+		AC88C2D22CE1978A0071DB21 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2D12CE1978A0071DB21 /* SearchInputViewController.swift */; };
+		AC88C2D42CE1BB430071DB21 /* SearchInputReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2D32CE1BB430071DB21 /* SearchInputReactor.swift */; };
+		AC88C2D72CE1BC360071DB21 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2D62CE1BC360071DB21 /* AppUserDefaults.swift */; };
+		AC88C2DD2CE1D7D70071DB21 /* RecentSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2DC2CE1D7D70071DB21 /* RecentSearchButton.swift */; };
+		AC88C2DF2CE1E7480071DB21 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2DE2CE1E7480071DB21 /* UIViewController+Extension.swift */; };
+		AC88C2E22CE1FD3A0071DB21 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2E12CE1FD3A0071DB21 /* SearchResultViewController.swift */; };
+		AC88C2E42CE2E7660071DB21 /* SearchResultReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2E32CE2E7660071DB21 /* SearchResultReactor.swift */; };
+		AC88C2E62CE2F4540071DB21 /* CompanyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC88C2E52CE2F4540071DB21 /* CompanyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +65,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		257C5884C526DF270D95510B /* Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401D2771FD939E8EE4760245 /* Pods-JobPlanet-MVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVM.debug.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVM/Pods-JobPlanet-MVVM.debug.xcconfig"; sourceTree = "<group>"; };
+		6B7423E49E7BCCEC5FC7F005 /* Pods_JobPlanet_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobPlanet_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A24EC8C31FA720A50D862A /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.release.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A8BA327DB14E3E5C753B237D /* Pods-JobPlanet-MVVMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVMTests.debug.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVMTests/Pods-JobPlanet-MVVMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC837A942CD8A67C004DC7D6 /* JobPlanet-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JobPlanet-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC837A9B2CD8A67C004DC7D6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AC837A9E2CD8A67C004DC7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC837AA32CD8A67D004DC7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +83,34 @@
 		AC837AB42CD8A67D004DC7D6 /* JobPlanet-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JobPlanet-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC837AB82CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanet_MVVMUITests.swift; sourceTree = "<group>"; };
 		AC837ABA2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanet_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC837ACD2CD8A906004DC7D6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		AC837AD22CD8ADAB004DC7D6 /* ViewAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAttributes.swift; sourceTree = "<group>"; };
+		AC837AD62CD9A80A004DC7D6 /* ToggleButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButon.swift; sourceTree = "<group>"; };
+		AC837AD92CD9B3A1004DC7D6 /* MainReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReactor.swift; sourceTree = "<group>"; };
+		AC837ADC2CD9EC94004DC7D6 /* EmploymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmploymentCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC837ADE2CDA0077004DC7D6 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		AC837AE12CDA056F004DC7D6 /* WLBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLBLabel.swift; sourceTree = "<group>"; };
+		AC837AE62CDAFC1F004DC7D6 /* Recruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruit.swift; sourceTree = "<group>"; };
+		AC837AE82CDAFCF5004DC7D6 /* Enterprise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enterprise.swift; sourceTree = "<group>"; };
+		AC837AEA2CDAFE2C004DC7D6 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		AC837AEC2CDAFE30004DC7D6 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		AC837AEE2CDB0D0A004DC7D6 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		AC88C2C72CDC47330071DB21 /* Reactive+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Extension.swift"; sourceTree = "<group>"; };
+		AC88C2CA2CDC8A2E0071DB21 /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
+		AC88C2CC2CDCB3820071DB21 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		AC88C2CE2CDD97A10071DB21 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		AC88C2D12CE1978A0071DB21 /* SearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewController.swift; sourceTree = "<group>"; };
+		AC88C2D32CE1BB430071DB21 /* SearchInputReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputReactor.swift; sourceTree = "<group>"; };
+		AC88C2D62CE1BC360071DB21 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		AC88C2DC2CE1D7D70071DB21 /* RecentSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchButton.swift; sourceTree = "<group>"; };
+		AC88C2DE2CE1E7480071DB21 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AC88C2E12CE1FD3A0071DB21 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		AC88C2E32CE2E7660071DB21 /* SearchResultReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultReactor.swift; sourceTree = "<group>"; };
+		AC88C2E52CE2F4540071DB21 /* CompanyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyLabel.swift; sourceTree = "<group>"; };
+		BB0443F3E53098F9C1AA023F /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7E524D14D133EFF2FA37D32 /* Pods-JobPlanet-MVVMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVMTests.release.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVMTests/Pods-JobPlanet-MVVMTests.release.xcconfig"; sourceTree = "<group>"; };
+		D5F0DFC9A20635057D296D0A /* Pods-JobPlanet-MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobPlanet-MVVM.release.xcconfig"; path = "Target Support Files/Pods-JobPlanet-MVVM/Pods-JobPlanet-MVVM.release.xcconfig"; sourceTree = "<group>"; };
+		EDD204CAF8E86BB3DA3C6F87 /* Pods_JobPlanet_MVVMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobPlanet_MVVMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D382D9C4F01CD0E9B8CD6A8 /* Pods_JobPlanet_MVVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8D2C1744C853A89DDFF9BB /* Pods_JobPlanet_MVVMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +134,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C4DC482489770054E31488B /* Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0109D85806CA5588A33A9B39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				401D2771FD939E8EE4760245 /* Pods-JobPlanet-MVVM.debug.xcconfig */,
+				D5F0DFC9A20635057D296D0A /* Pods-JobPlanet-MVVM.release.xcconfig */,
+				BB0443F3E53098F9C1AA023F /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.debug.xcconfig */,
+				91A24EC8C31FA720A50D862A /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.release.xcconfig */,
+				A8BA327DB14E3E5C753B237D /* Pods-JobPlanet-MVVMTests.debug.xcconfig */,
+				C7E524D14D133EFF2FA37D32 /* Pods-JobPlanet-MVVMTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6BB111290C192A449E2FAD58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B7423E49E7BCCEC5FC7F005 /* Pods_JobPlanet_MVVM.framework */,
+				257C5884C526DF270D95510B /* Pods_JobPlanet_MVVM_JobPlanet_MVVMUITests.framework */,
+				EDD204CAF8E86BB3DA3C6F87 /* Pods_JobPlanet_MVVMTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC837A8B2CD8A67C004DC7D6 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +171,8 @@
 				AC837AAD2CD8A67D004DC7D6 /* JobPlanet-MVVMTests */,
 				AC837AB72CD8A67D004DC7D6 /* JobPlanet-MVVMUITests */,
 				AC837A952CD8A67C004DC7D6 /* Products */,
+				0109D85806CA5588A33A9B39 /* Pods */,
+				6BB111290C192A449E2FAD58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +189,14 @@
 		AC837A962CD8A67C004DC7D6 /* JobPlanet-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */,
-				AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */,
-				AC837A9B2CD8A67C004DC7D6 /* ViewController.swift */,
-				AC837A9D2CD8A67C004DC7D6 /* Main.storyboard */,
-				AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */,
-				AC837AA22CD8A67D004DC7D6 /* LaunchScreen.storyboard */,
 				AC837AA52CD8A67D004DC7D6 /* Info.plist */,
+				AC837AC82CD8A8BC004DC7D6 /* AppDelegate */,
+				AC837ACA2CD8A8D6004DC7D6 /* Resources */,
+				AC837AC92CD8A8C6004DC7D6 /* StoryBoard */,
+				AC837ACC2CD8A8F3004DC7D6 /* Extension */,
+				AC837AD12CD8AD9F004DC7D6 /* Protocol */,
+				AC837AC72CD8A8B2004DC7D6 /* Presentation */,
+				AC837AE32CDAEF7D004DC7D6 /* Service */,
 			);
 			path = "JobPlanet-MVVM";
 			sourceTree = "<group>";
@@ -127,6 +218,173 @@
 			path = "JobPlanet-MVVMUITests";
 			sourceTree = "<group>";
 		};
+		AC837AC72CD8A8B2004DC7D6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AD42CD9A79A004DC7D6 /* Common */,
+				AC837AD82CD9B263004DC7D6 /* Main */,
+				AC88C2D02CE197350071DB21 /* SearchInput */,
+				AC88C2E02CE1FD1F0071DB21 /* SearchResult */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AC837AC82CD8A8BC004DC7D6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				AC837A972CD8A67C004DC7D6 /* AppDelegate.swift */,
+				AC837A992CD8A67C004DC7D6 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		AC837AC92CD8A8C6004DC7D6 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				AC837A9D2CD8A67C004DC7D6 /* Main.storyboard */,
+				AC837AA22CD8A67D004DC7D6 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		AC837ACA2CD8A8D6004DC7D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AA02CD8A67D004DC7D6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC837ACC2CD8A8F3004DC7D6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AC837ACD2CD8A906004DC7D6 /* UIColor+Extension.swift */,
+				AC837ADE2CDA0077004DC7D6 /* UILabel+Extension.swift */,
+				AC837AEE2CDB0D0A004DC7D6 /* Int+Extension.swift */,
+				AC88C2C72CDC47330071DB21 /* Reactive+Extension.swift */,
+				AC88C2DE2CE1E7480071DB21 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AC837AD12CD8AD9F004DC7D6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AD22CD8ADAB004DC7D6 /* ViewAttributes.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AC837AD42CD9A79A004DC7D6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AE02CDA054F004DC7D6 /* UILabel */,
+				AC837AD52CD9A7A4004DC7D6 /* UIButton */,
+				AC837ADB2CD9EBBF004DC7D6 /* UICollectionViewCell */,
+				AC88C2C92CDC89EF0071DB21 /* UITableViewCell */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AC837AD52CD9A7A4004DC7D6 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AD62CD9A80A004DC7D6 /* ToggleButon.swift */,
+				AC88C2DC2CE1D7D70071DB21 /* RecentSearchButton.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		AC837AD82CD9B263004DC7D6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AC837A9B2CD8A67C004DC7D6 /* MainViewController.swift */,
+				AC837AD92CD9B3A1004DC7D6 /* MainReactor.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AC837ADB2CD9EBBF004DC7D6 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC837ADC2CD9EC94004DC7D6 /* EmploymentCollectionViewCell.swift */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		AC837AE02CDA054F004DC7D6 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AE12CDA056F004DC7D6 /* WLBLabel.swift */,
+				AC88C2E52CE2F4540071DB21 /* CompanyLabel.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		AC837AE32CDAEF7D004DC7D6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AC88C2D52CE1BC0D0071DB21 /* UserDefaults */,
+				AC837AE42CDAF0A0004DC7D6 /* API */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AC837AE42CDAF0A0004DC7D6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AE52CDAF0A6004DC7D6 /* Main */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AC837AE52CDAF0A6004DC7D6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AC837AE62CDAFC1F004DC7D6 /* Recruit.swift */,
+				AC837AE82CDAFCF5004DC7D6 /* Enterprise.swift */,
+				AC837AEA2CDAFE2C004DC7D6 /* MainRouter.swift */,
+				AC837AEC2CDAFE30004DC7D6 /* MainService.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AC88C2C92CDC89EF0071DB21 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC88C2CA2CDC8A2E0071DB21 /* CompanyTableViewCell.swift */,
+				AC88C2CC2CDCB3820071DB21 /* ThemeTableViewCell.swift */,
+				AC88C2CE2CDD97A10071DB21 /* ReviewTableViewCell.swift */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		AC88C2D02CE197350071DB21 /* SearchInput */ = {
+			isa = PBXGroup;
+			children = (
+				AC88C2D12CE1978A0071DB21 /* SearchInputViewController.swift */,
+				AC88C2D32CE1BB430071DB21 /* SearchInputReactor.swift */,
+			);
+			path = SearchInput;
+			sourceTree = "<group>";
+		};
+		AC88C2D52CE1BC0D0071DB21 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				AC88C2D62CE1BC360071DB21 /* AppUserDefaults.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		AC88C2E02CE1FD1F0071DB21 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				AC88C2E12CE1FD3A0071DB21 /* SearchResultViewController.swift */,
+				AC88C2E32CE2E7660071DB21 /* SearchResultReactor.swift */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +392,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC837ABE2CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVM" */;
 			buildPhases = (
+				C6C483DEAF300AF119E9360E /* [CP] Check Pods Manifest.lock */,
 				AC837A902CD8A67C004DC7D6 /* Sources */,
 				AC837A912CD8A67C004DC7D6 /* Frameworks */,
 				AC837A922CD8A67C004DC7D6 /* Resources */,
+				B9D2159FF598FF855AA87C09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +411,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC837AC12CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMTests" */;
 			buildPhases = (
+				86E1DD6D332EEEE763F29794 /* [CP] Check Pods Manifest.lock */,
 				AC837AA62CD8A67D004DC7D6 /* Sources */,
 				AC837AA72CD8A67D004DC7D6 /* Frameworks */,
 				AC837AA82CD8A67D004DC7D6 /* Resources */,
@@ -169,9 +430,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC837AC42CD8A67D004DC7D6 /* Build configuration list for PBXNativeTarget "JobPlanet-MVVMUITests" */;
 			buildPhases = (
+				B151A3F8BE37256BF23ED7BD /* [CP] Check Pods Manifest.lock */,
 				AC837AB02CD8A67D004DC7D6 /* Sources */,
 				AC837AB12CD8A67D004DC7D6 /* Frameworks */,
 				AC837AB22CD8A67D004DC7D6 /* Resources */,
+				AF92C72DDCAEC7384CB626E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,14 +516,141 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86E1DD6D332EEEE763F29794 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JobPlanet-MVVMTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF92C72DDCAEC7384CB626E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B151A3F8BE37256BF23ED7BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9D2159FF598FF855AA87C09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM/Pods-JobPlanet-MVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM/Pods-JobPlanet-MVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JobPlanet-MVVM/Pods-JobPlanet-MVVM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6C483DEAF300AF119E9360E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JobPlanet-MVVM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC837A902CD8A67C004DC7D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC837A9C2CD8A67C004DC7D6 /* ViewController.swift in Sources */,
+				AC88C2DF2CE1E7480071DB21 /* UIViewController+Extension.swift in Sources */,
+				AC837AEF2CDB0D0A004DC7D6 /* Int+Extension.swift in Sources */,
+				AC837AED2CDAFE30004DC7D6 /* MainService.swift in Sources */,
+				AC837ADA2CD9B3A1004DC7D6 /* MainReactor.swift in Sources */,
+				AC837A9C2CD8A67C004DC7D6 /* MainViewController.swift in Sources */,
+				AC88C2C82CDC47330071DB21 /* Reactive+Extension.swift in Sources */,
+				AC837AD32CD8ADAB004DC7D6 /* ViewAttributes.swift in Sources */,
+				AC88C2E22CE1FD3A0071DB21 /* SearchResultViewController.swift in Sources */,
+				AC88C2E62CE2F4540071DB21 /* CompanyLabel.swift in Sources */,
+				AC837AD72CD9A80A004DC7D6 /* ToggleButon.swift in Sources */,
+				AC837AE92CDAFCF5004DC7D6 /* Enterprise.swift in Sources */,
+				AC837AEB2CDAFE2C004DC7D6 /* MainRouter.swift in Sources */,
+				AC88C2DD2CE1D7D70071DB21 /* RecentSearchButton.swift in Sources */,
+				AC88C2D42CE1BB430071DB21 /* SearchInputReactor.swift in Sources */,
+				AC88C2D72CE1BC360071DB21 /* AppUserDefaults.swift in Sources */,
+				AC88C2CD2CDCB3820071DB21 /* ThemeTableViewCell.swift in Sources */,
 				AC837A982CD8A67C004DC7D6 /* AppDelegate.swift in Sources */,
+				AC88C2D22CE1978A0071DB21 /* SearchInputViewController.swift in Sources */,
 				AC837A9A2CD8A67C004DC7D6 /* SceneDelegate.swift in Sources */,
+				AC88C2CB2CDC8A2E0071DB21 /* CompanyTableViewCell.swift in Sources */,
+				AC837AE22CDA056F004DC7D6 /* WLBLabel.swift in Sources */,
+				AC837ADD2CD9EC94004DC7D6 /* EmploymentCollectionViewCell.swift in Sources */,
+				AC88C2E42CE2E7660071DB21 /* SearchResultReactor.swift in Sources */,
+				AC837ACE2CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */,
+				AC837ADF2CDA0077004DC7D6 /* UILabel+Extension.swift in Sources */,
+				AC837AE72CDAFC1F004DC7D6 /* Recruit.swift in Sources */,
+				AC88C2CF2CDD97A10071DB21 /* ReviewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC837AAF2CD8A67D004DC7D6 /* JobPlanet_MVVMTests.swift in Sources */,
+				AC837ACF2CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC837AD02CD8A906004DC7D6 /* UIColor+Extension.swift in Sources */,
 				AC837ABB2CD8A67D004DC7D6 /* JobPlanet_MVVMUITestsLaunchTests.swift in Sources */,
 				AC837AB92CD8A67D004DC7D6 /* JobPlanet_MVVMUITests.swift in Sources */,
 			);
@@ -437,19 +829,23 @@
 		};
 		AC837ABF2CD8A67D004DC7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 401D2771FD939E8EE4760245 /* Pods-JobPlanet-MVVM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JobPlanet-MVVM/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "잡플래닛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,27 +853,35 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AC837AC02CD8A67D004DC7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5F0DFC9A20635057D296D0A /* Pods-JobPlanet-MVVM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S3JUP5Z7K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JobPlanet-MVVM/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "잡플래닛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,14 +889,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jobplanet.JobPlanet-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		AC837AC22CD8A67D004DC7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8BA327DB14E3E5C753B237D /* Pods-JobPlanet-MVVMTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -513,6 +922,7 @@
 		};
 		AC837AC32CD8A67D004DC7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7E524D14D133EFF2FA37D32 /* Pods-JobPlanet-MVVMTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -533,6 +943,7 @@
 		};
 		AC837AC52CD8A67D004DC7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0443F3E53098F9C1AA023F /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -551,6 +962,7 @@
 		};
 		AC837AC62CD8A67D004DC7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91A24EC8C31FA720A50D862A /* Pods-JobPlanet-MVVM-JobPlanet-MVVMUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
