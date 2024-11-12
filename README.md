@@ -71,7 +71,65 @@
 이 구조를 통해 협업 시 효율적으로 기능을 분리하고 통합할 수 있었으며, 문제 발생 시 신속히 대응할 수 있었습니다.
 
 ## Trouble Shooting
-- 작성중
+1. Reactor의 State가 변경됨과 동시에 Cell의 UILabel이 사라지는 현상
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/ce7e9bd8-93d9-4055-bad5-7f0c3ab90047" width="300">
+</div>
+
+> 해결 방법
+- UICollectionViewCell의 특징인 cell을 reuse하여 메모리를 아끼는 특성 때문에 해당 코드를 삽입 하였음.
+```swift
+override func prepareForReuse() {
+        self.companyLogoImageView.image = nil
+        self.companyLabel.text = ""
+        self.industryNameLabel.text = ""
+        self.ratingLabel.text = ""
+        self.companyReviewLabel.text = ""
+        self.salaryAvgMoneyLabel.text = ""
+        self.interviewQuestionContentLabel.text = ""
+    }
+```
+<br>
+
+2. 메모리가 기하습수적으로 늘어나는 현상
+- 테스트를 위해 화면 이동을 진행중, 메모리가 늘어나는 현상을 발견
+
+<div align="center">
+  <img width="406" alt=" 2024-11-12 오후 4 48 46" src="https://github.com/user-attachments/assets/2926e1b5-9c70-4200-8a35-e3b48f40da01">
+</div>
+
+
+> 원인 
+1. API를 호출하는 인스턴스가 메모리가 해제 되지 않고 쌓임
+2. UICollectionView의 Subview인 WLBLabel 또한 메모리가 해제 되지 않고 쌓임
+
+<br>
+
+> 해결
+1. API를 호출하는 인스턴스를 싱글톤으로 처리
+2. UICollectionView의 preparereuse()에서 객체가 메모리에 남지 않게 처리
+```swift
+    override func prepareForReuse() {
+        self.imageView.image = nil
+        
+        self.titleLabel.text = ""
+        self.ratingLabel.text = ""
+        self.companyLabel.text = ""
+        self.rewardLabel.text = ""
+        
+        // stackView 내부의 모든 arrangedSubview 제거
+        stackView.arrangedSubviews.forEach { subview in
+            stackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
+        }
+        
+        // contentView에서 추가된 wlbLabel 인스턴스를 제거
+        contentView.subviews.filter { $0 is WLBLabel }.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+}
+```
 
 
 
@@ -967,7 +1025,935 @@
 ## 4. 역할 분담
 
 ### 🧑🏻‍💻신승욱
-- 작성중   
+1. 탭 이동
+> 탭을 이동하여 Navigation을 옮겨다니지 않아도 화면이 전환되는 효과를 주었음.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/354dcfd7-442d-40e8-9aa4-b1510647cd16">
+</div>
+
+<br>
+
+2. UICollectionView 스크롤
+> 잡플래닛 API를 통해 데이터를 가져오고(Moya 라이브러리 사용), 데이터들을 MVVM으로 순차대로 화면단에 적용
+
+
+```json
+{
+    "recruit_items": [
+        {
+            "id": 1200,
+            "title": "[잡플래닛] iOS 앱개발",
+            "reward": 2000000,
+            "appeal": "복지포인트, 스낵바, 자기계발비",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2229/w750__EA_B8_B0_ED_9A_8D_ED_8C_80.jpg",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 3.6
+                    },
+                    {
+                        "type": "워라밸",
+                        "rating": 3.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 3.5
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1201,
+            "title": "[잡플래닛] Android 앱개발",
+            "reward": 0,
+            "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2126/w750__EC_95_88_EB_93_9C_EB_A1_9C_EC_9D_B4_EB_93_9C_1400_788.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "경영진",
+                        "rating": 2.0
+                    },
+                    {
+                        "type": "CEO 지지도",
+                        "rating": 4.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 3.5
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1203,
+            "title": "[잡플래닛] 프론트 엔드 개발자 (Senior)",
+            "reward": 100000,
+            "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2125/w750__ED_94_84_EB_A1_A0_ED_8A_B8_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "경영진",
+                        "rating": 2.0
+                    },
+                    {
+                        "type": "CEO 지지도",
+                        "rating": 4.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 4.1
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1100,
+            "title": "기술전문 상담사",
+            "reward": 0,
+            "appeal": "",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 0.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 0.0
+                    },
+                    {
+                        "type": "승진 가능성",
+                        "rating": 0.0
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1205,
+            "title": "[잡플래닛] 백엔드 개발자 (Junior)",
+            "reward": 500000,
+            "appeal": "패밀리데이, 최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2117/w750__EB_B0_B1_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 2.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 3.0
+                    },
+                    {
+                        "type": "승진 가능성",
+                        "rating": 4.1
+                    }
+                ]
+            }
+        },
+        {
+            "id": 110,
+            "title": "[잡플래닛] QA 엔지니어 팀장",
+            "reward": 1000000,
+            "appeal": "재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 3.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 3.0
+                    },
+                    {
+                        "type": "CEO 지지도",
+                        "rating": 3.0
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1010,
+            "title": "[잡플래닛] 마케팅 제휴 본부장",
+            "reward": 100000,
+            "appeal": "최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 3.1
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 3.0
+                    },
+                    {
+                        "type": "승진 가능성",
+                        "rating": 3.0
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1300,
+            "title": "사내 변호사(Junior)",
+            "reward": 0,
+            "appeal": "재택근무, 복지카드, 패밀리데이",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/957/w750_00.thumbnail.png",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 4.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 4.1
+                    },
+                    {
+                        "type": "승진 가능성",
+                        "rating": 4.0
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1301,
+            "title": "전략제휴본부 서비스 운영 기획/관리 담당자",
+            "reward": 0,
+            "appeal": "",
+            "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+            "company": {
+                "name": "잡플래닛",
+                "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                "ratings": [
+                    {
+                        "type": "사내문화",
+                        "rating": 4.0
+                    },
+                    {
+                        "type": "복지/급여",
+                        "rating": 4.0
+                    },
+                    {
+                        "type": "승진 가능성",
+                        "rating": 4.1
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/16c58fcb-01a6-4ff2-a485-32dd09ee3543" width="400">
+</div>
+<br>
+
+
+
+3. UITableView, CellType에 따른 cell분기 처리
+> 잡플래닛 API를 통해 데이터를 가져오고(Moya 라이브러리 사용), 데이터들을 MVVM으로 순차대로 화면단에 적용
+
+```json
+{
+    "cell_items": [
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/82465/thumb_25.png",
+            "name": "대교(주)",
+            "industry_name": "교육업",
+            "rate_total_avg": 2.63,
+            "review_summary": "학습지 시장에서 높은 인지도를 가지고 있으나,\r\n학습지업 자체가 하락세이며 영업압박이 심함",
+            "interview_question": "회사의 이익 규모에 대해 알고 있나?\r\n본인이 잘 할 수 있는 분야는?\r\n본인은 회사에서 장래 어떤 비전을 갖고 있나?",
+            "salary_avg": 3483,
+            "update_date": "2022-02-08T15:04:31.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+            "name": "바이널아이",
+            "industry_name": "미디어/디자인",
+            "rate_total_avg": 2.74,
+            "review_summary": "제안, 운영 디바이스 가리지 않고 다양한 업무의 경험과 뒷받침 되는 엄청난 포트폴리오를 쌓을 수 있다. 특히나 뉴미디어 쪽으로의 경험과 커리어를 쌓고 싶다면 강추",
+            "interview_question": "자기소개, 지원동기, 영어 가능여부, 기존 작업한 문서를 토대로 PT",
+            "salary_avg": 2909,
+            "update_date": "2022-02-01T11:04:31.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_HORIZONTAL_THEME",
+            "count": 9,
+            "section_title": "인기 급상승 공고",
+            "recommend_recruit": [
+                {
+                    "id": 1200,
+                    "title": "[잡플래닛] iOS 앱개발",
+                    "reward": 2000000,
+                    "appeal": "복지포인트, 스낵바, 자기계발비",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2229/w750__EA_B8_B0_ED_9A_8D_ED_8C_80.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.6
+                            },
+                            {
+                                "type": "워라밸",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1201,
+                    "title": "[잡플래닛] Android 앱개발",
+                    "reward": 0,
+                    "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2126/w750__EC_95_88_EB_93_9C_EB_A1_9C_EC_9D_B4_EB_93_9C_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "경영진",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1203,
+                    "title": "[잡플래닛] 프론트 엔드 개발자 (Senior)",
+                    "reward": 100000,
+                    "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2125/w750__ED_94_84_EB_A1_A0_ED_8A_B8_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "경영진",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1100,
+                    "title": "기술전문 상담사",
+                    "reward": 0,
+                    "appeal": "",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 0.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 0.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 0.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1205,
+                    "title": "[잡플래닛] 백엔드 개발자 (Junior)",
+                    "reward": 500000,
+                    "appeal": "패밀리데이, 최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2117/w750__EB_B0_B1_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 110,
+                    "title": "[잡플래닛] QA 엔지니어 팀장",
+                    "reward": 1000000,
+                    "appeal": "재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 3.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1010,
+                    "title": "[잡플래닛] 마케팅 제휴 본부장",
+                    "reward": 100000,
+                    "appeal": "최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.1
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 3.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1300,
+                    "title": "사내 변호사(Junior)",
+                    "reward": 0,
+                    "appeal": "재택근무, 복지카드, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/957/w750_00.thumbnail.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.1
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1301,
+                    "title": "전략제휴본부 서비스 운영 기획/관리 담당자",
+                    "reward": 0,
+                    "appeal": "",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/60172/thumb___________.png",
+            "name": "유라코퍼레이션(주)",
+            "industry_name": "제조/화학",
+            "rate_total_avg": 2.77,
+            "review_summary": "글로벌한 근무환경과 다양한 직무경험 보수적인 분위기",
+            "interview_question": "1차) 자기소개와 함께 지원하신 동기 말씀해주세요.\n      와이어링 설계에서 무엇이 중요하다고 생각하나\n      그외 이력서 특이사항 질문\n2차) 학교에서 무엇을 배웠나? \n        또는 학교에서 무엇을 하였는가?\n        ",
+            "salary_avg": 4047,
+            "update_date": "2022-07-01T19:01:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/56099/thumb_56099.JPG",
+            "name": "젬스메디컬(주)",
+            "industry_name": "제조/화학",
+            "rate_total_avg": 2.38,
+            "review_summary": "개발/연구 등 많은 투자를 통해서 DR시스템업체로 발돋움을 하려고 하였으나 경영진의 이원화 및 집중화 부족으로 예측할 수 없는 상황",
+            "interview_question": "1. 업무 관련 지식에 대한 질문\r\n2. 협업과 관련된 사람들을 대하는 태도 질문\r\n3. 할 수 있는 일과 하고 싶은 일\r\n4. 본인의 장단점에 관한 질문",
+            "salary_avg": 3067,
+            "update_date": "2022-06-01T12:01:01.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_REVIEW",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/6991/thumb_____35.PNG",
+            "name": "퀄컴씨디엠에이테크날러지코리아(유)",
+            "industry_name": "유통/무역/운송",
+            "rate_total_avg": 4.25,
+            "review_summary": "자기가 한만큼 인정 받고 대접을 받을 수 있는 곳",
+            "cons": "지사로써의 한계. 모든 결정 및 책임은 본사로부터 나옴. 너무 비용만을 고려한 의사결정은 회사에 대한 충성도를 떨어 뜨림",
+            "pros": "매니저의 눈치를 거의 안보고 업무만 집중할 수 있는 분위기. 높은 수준의 연봉. 업계 최고의 기술력을 보유하고 있음. 체계화된 프로세스등 배울 것이 많음. 해외의 유능한 엔지니어와의 소통을 통해 느끼고 배울수 있는 기회",
+            "update_date": "2022-06-01T11:01:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/3247/thumb_________.png",
+            "name": "한국원자력의학원",
+            "industry_name": "기관/협회",
+            "rate_total_avg": 3,
+            "review_summary": "교통이 괜찮고 넉넉한 근무, 하지만 챗바퀴 도는 기분",
+            "interview_question": "지원하는 직무에 본인이 적합한 이유를 설명하시오.\n지원하는 직무가 하는일을 설명하시오.",
+            "salary_avg": 3209,
+            "update_date": "2022-05-02T07:01:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86149/thumb____.png",
+            "name": "가비아(주)",
+            "industry_name": "IT/웹/통신",
+            "rate_total_avg": 3.41,
+            "review_summary": "매너리즘 심각함, 부서에 따라서 업무량과 부담이 확 다름.",
+            "interview_question": "고객이 홈페이지를 제작하고 싶어한다. 어떻게 응대를 하겠느냐 ",
+            "salary_avg": 3357,
+            "update_date": "2022-05-05T20:01:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_REVIEW",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/2679/thumb_2679.png",
+            "name": "한미반도체(주)",
+            "industry_name": "제조/화학",
+            "rate_total_avg": 2.37,
+            "review_summary": "반도체 후공정 장비 1위 인지도는 있음",
+            "cons": "고객의 니즈에 맞춰 제품 제작이 이루어져 관련 기술응용 함에 좋으나 표준 제품 제작보다 시간이 좀 더 투입됨.",
+            "pros": "반도체 관련 산업 전망에 대해 이해할 수 있으며 이름도 알려져 있어 커리어 관리하기에는 좋음.",
+            "update_date": "2022-02-02T20:01:10.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/60632/thumb_______.png",
+            "name": "위메프(주)",
+            "industry_name": "유통/무역/운송",
+            "rate_total_avg": 2.53,
+            "review_summary": "AMD도 MD가 될 수 있는 기회가 열린 곳. 열정을 높이 사는 곳, 신입 분들에게 권합니다. 매우 빠르게 성장하면서 성장통을 겪고 있는 회사. 과도한 업무, 체계 부족이 문제이지만 문제 개선을 위해 노력하는 회사.",
+            "interview_question": "1. 전 직장에서 했던 일\r\n2. 위메프에 입사하려는 이유\r\n3. 성취한 일, 실패한 일. 교훈",
+            "salary_avg": 2828,
+            "update_date": "2022-05-05T19:12:12.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/assets/default_logo_share-12e4cb8f87fe87d4c2316feb4cb33f42d7f7584f2548350d6a42e47688a00bd0.png",
+            "name": "미래디자인아이엠씨(주)",
+            "industry_name": "미디어/디자인",
+            "rate_total_avg": 0,
+            "review_summary": "",
+            "interview_question": "전에 직장에서 무슨업무를 했었는가 연봉은 얼마정도 생각하는가 압박질문은 없었다. 부모님께서 무슨 일하시나 물어보시며 비웃으셨다......",
+            "salary_avg": 0,
+            "update_date": "2022-07-07T20:11:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_REVIEW",
+            "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/3585/thumb_3585.png",
+            "name": "한국미니스톱(주)",
+            "industry_name": "유통/무역/운송",
+            "rate_total_avg": 2.52,
+            "review_summary": "전형적인 일본식회사. 한국 특유의 매출압박은 없으나,상여금 및 명절떡값도 없음 (개인주의가 심해서 특유의  소속감 부재)",
+            "cons": "명절 상여금x. 소프트크림및 치킨을 팔아서 관리하는데 손이 자주감 . 승진하려면 일본어 잘해야되서 이직률도 높은듯",
+            "pros": "돈은 많이주는편. 초봉이 세금띠고 3250정도 되는듯. 6개월 점장생활을 거친뒤, 15개 매장을 관리한다. 편의점 숫자는 전국4등이지만 점포당 매출액은 1위",
+            "update_date": "2021-12-21T19:02:11.000+09:00"
+        },
+        {
+            "cell_type": "CELL_TYPE_HORIZONTAL_THEME",
+            "count": 9,
+            "section_title": "인기 급상승 중인 잡플래닛의 추천 공고",
+            "recommend_recruit": [
+                {
+                    "id": 1200,
+                    "title": "[잡플래닛] iOS 앱개발",
+                    "reward": 2000000,
+                    "appeal": "복지포인트, 스낵바, 자기계발비",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2229/w750__EA_B8_B0_ED_9A_8D_ED_8C_80.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.6
+                            },
+                            {
+                                "type": "워라밸",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1201,
+                    "title": "[잡플래닛] Android 앱개발",
+                    "reward": 0,
+                    "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2126/w750__EC_95_88_EB_93_9C_EB_A1_9C_EC_9D_B4_EB_93_9C_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "경영진",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1203,
+                    "title": "[잡플래닛] 프론트 엔드 개발자 (Senior)",
+                    "reward": 100000,
+                    "appeal": "복지포인트100만원, 유연근무제, 단일호칭, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2125/w750__ED_94_84_EB_A1_A0_ED_8A_B8_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "경영진",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1100,
+                    "title": "기술전문 상담사",
+                    "reward": 0,
+                    "appeal": "",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 0.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 0.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 0.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1205,
+                    "title": "[잡플래닛] 백엔드 개발자 (Junior)",
+                    "reward": 500000,
+                    "appeal": "패밀리데이, 최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2117/w750__EB_B0_B1_EC_97_94_EB_93_9C_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 2.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 110,
+                    "title": "[잡플래닛] QA 엔지니어 팀장",
+                    "reward": 1000000,
+                    "appeal": "재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "CEO 지지도",
+                                "rating": 3.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1010,
+                    "title": "[잡플래닛] 마케팅 제휴 본부장",
+                    "reward": 100000,
+                    "appeal": "최신업무장비 복지포인트 100만원, 재택근무, 복지카드, 자율출퇴근, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/2113/w750_QA_ED_8C_80_1400_788.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 3.1
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 3.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 3.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1300,
+                    "title": "사내 변호사(Junior)",
+                    "reward": 0,
+                    "appeal": "재택근무, 복지카드, 패밀리데이",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company_story/thumbnail/957/w750_00.thumbnail.png",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/86783/thumb_thumb_jp_symbol3.png",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.1
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1301,
+                    "title": "전략제휴본부 서비스 운영 기획/관리 담당자",
+                    "reward": 0,
+                    "appeal": "",
+                    "image_url": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                    "company": {
+                        "name": "잡플래닛",
+                        "logo_path": "https://jpassets.jobplanet.co.kr/production/uploads/company/logo/88038/thumb______.jpg",
+                        "ratings": [
+                            {
+                                "type": "사내문화",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "복지/급여",
+                                "rating": 4.0
+                            },
+                            {
+                                "type": "승진 가능성",
+                                "rating": 4.1
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "cell_type": "CELL_TYPE_COMPANY",
+            "logo_path": "https://jpassets.jobplanet.co.kr/assets/default_logo_share-12e4cb8f87fe87d4c2316feb4cb33f42d7f7584f2548350d6a42e47688a00bd0.png",
+            "name": "시내엔들(주)",
+            "industry_name": "유통/무역/운송",
+            "rate_total_avg": 0,
+            "review_summary": "",
+            "interview_question": "편안한 분위기에서 불편한 질문들, 사적인 질문 많음. 압박면접이라 생각하면 괜찮으나 개인적으로 불편했음. 나중엔 속으로 '에라 모르겠다 나 뽑든말든 맘대로해라'라는 심보가 자라남. ",
+            "salary_avg": 0,
+            "update_date": "2020-02-02T19:02:20.000+09:00"
+        }
+    ]
+}
+```
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/420690b9-486e-49fd-b630-40367c398727" width="400">
+</div>
+
+<br>
+
+4. 검색 기능
+> UserDefaults를 통해 사용자가 최근 검색한 검색어 순으로 정렬하고 검색어들을 전체삭제하는 기능들을 삽입, 추가적으로 결과를 보여줄때는 고차함수 filter를 이용하여 화면단에 최종적으로 보여짐
+
+```swift
+import Foundation
+import ReactorKit
+
+final class SearchResultReactor: Reactor {
+    var initialState = State()
+    private let apiService = MainService.shared
+    
+    struct State {
+        var keyword: String = ""
+        var recruitItem: [RecruitItem]? = nil
+        var enterpriseItem: [CellItem]? = nil
+    }
+    
+    enum Action {
+        case viewWillAppear(keyword: String)
+    }
+    
+    enum Mutation {
+        case setKeyword(keyword: String)
+        case setRecruit([RecruitItem])
+        case setEnterprise([CellItem])
+    }
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .viewWillAppear(let keyword):
+            return Observable.concat([
+                .just(.setKeyword(keyword: keyword)),
+                apiService.fetchData(.employment, model: Recruit.self)
+                    .map { .setRecruit($0.recruitItems) },
+                apiService.fetchData(.enterprise, model: Enterprise.self)
+                    .map { .setEnterprise($0.cellItems) }
+            ])
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case .setKeyword(let keyword):
+            newState.keyword = keyword
+        case .setRecruit(let recruit):
+            newState.recruitItem = recruit.filter { $0.title.contains(state.keyword) }
+        case .setEnterprise(let cellItem):
+            newState.enterpriseItem = cellItem
+                .filter { $0.cellType == .cellTypeCompany || $0.cellType == .cellTypeReview }
+                .filter { $0.name?.contains(state.keyword) ?? false }
+            
+        }
+        return newState
+    }
+}
+
+```
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1d21785a-3ce0-43da-98ba-aa4897d74fc5" width="400">
+</div>
+
+<br>
+
 
 ## 5. 개발 기간 및 작업 관리
 
@@ -979,7 +1965,71 @@
 <br>
 
 ## 6. 신경 쓴 부분
-- 작성중
+
+1. 검색 기능
+> 검색 기능은 잡플래닛에서 자유롭게 구현하라고 제시한 기능으로 신경쓴 부분은 **최근 검색어**, **최근 검색어 전체 삭제**, **검색 결과** 등이 있습니다.
+> 최근 검색어 관련은 UserDefaults를 사용하여 구현하였습니다.
+
+
+```swift
+// TODO: 1. 중복 없이
+// TODO: 2. 중복이라면 맨앞으로 뺄 것
+
+import Foundation
+
+final class AppUserDefaults {
+    static let shared = AppUserDefaults()
+    private let userDefaults = UserDefaults.standard
+    
+    // MARK: - Keys
+    private struct Keys {
+        static let recentSearchWord = "RecentSearchWord"
+    }
+    
+    func setRecentSearchWord(with keyword: String) {
+        var searchWordArray = getRecentSearchWord()
+
+        // 1. 중복 제거: 이미 존재하는 검색어는 제거
+        if let index = searchWordArray.firstIndex(of: keyword) {
+            searchWordArray.remove(at: index)
+        }
+
+        // 2. 새로운 검색어를 맨 앞에 추가
+        searchWordArray.insert(keyword, at: 0)
+
+        // UserDefaults에 저장
+        UserDefaults.standard.setValue(searchWordArray, forKey: Keys.recentSearchWord)
+    }
+
+    
+    func getRecentSearchWord() -> [String] {
+        guard let array = userDefaults.stringArray(forKey: Keys.recentSearchWord) else {
+            return []
+        }
+        
+        return array
+    }
+    
+    func removeRecentSearchWord() {
+        userDefaults.removeObject(forKey: Keys.recentSearchWord)
+    }
+}
+```
+
+
+
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1d21785a-3ce0-43da-98ba-aa4897d74fc5" width="400">
+</div>
+
+<br>
+
+2. UI, MVVM, 코드정리
+> 해당 주제들로 리젝이 된 프로젝트이기 때문에 해당 주제들을 더 많이 신경썼고, 자세한 내용은 프로젝트 코드를 참고 바랍니다 🙇🏻‍♂️
+
+
+
 
 
 <br>
